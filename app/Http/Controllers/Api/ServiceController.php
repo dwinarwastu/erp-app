@@ -11,9 +11,27 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $services = Service::query()->get();
+        $status = $request->query("status");
+
+        $query = Service::query();
+
+        if ($status !== null) {
+            if (!in_array($status, ["active", "inactive"], true)) {
+                return response()->json([
+                    "success" => false,
+                    "message" => "Validation failed",
+                    "errors" => [
+                        "status" => ["The selected status is invalid."],
+                    ],
+                ], 422);
+            }
+
+            $query->where("status", $status === "active");
+        }
+
+        $services = $query->latest()->get();
 
         return response()->json([
             "success" => true,
