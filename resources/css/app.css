@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+body, body * {
+    font-weight: 600 !important;
+}
+
+@theme {
+    --font-sans:
+        "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --color-primary: #394149;
+    --color-primary-dark: #2d343b;
+}
+
+.sidebar-collapsed {
+    width: 5rem;
+}
+
+.sidebar-collapsed .sidebar-logo {
+    display: none;
+}
+
+.sidebar-collapsed .sidebar-label {
+    display: none;
+}
+
+.sidebar-collapsed .px-4.py-4 {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    width: 100%;
+}
+
+.sidebar-collapsed #sidebar-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sidebar-collapsed .sidebar-header {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar-collapsed nav a,
+.sidebar-collapsed .px-4.py-6 a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 0;
+}
+
+.sidebar-collapsed nav a i,
+.sidebar-collapsed .px-4.py-6 a i {
+    flex-shrink: 0;
+}
